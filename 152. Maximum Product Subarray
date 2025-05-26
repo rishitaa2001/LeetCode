@@ -1,0 +1,21 @@
+class Solution(object):
+    def maxProduct(self, nums):
+        max_product=nums[0]
+        pp=1
+        sp=1
+        neg=len([x for x in nums if x<0])
+        for i in range(len(nums)):
+            pp=pp*nums[i]
+            sp=sp*nums[-(i+1)]
+            if max_product<pp or max_product<sp:
+                max_product=max(pp,sp)
+            if nums[i]==0: 
+                pp=1
+            if nums[-(i+1)]==0: 
+                sp=1
+        return max_product
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        
