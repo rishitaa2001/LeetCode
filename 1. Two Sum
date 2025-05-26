@@ -1,0 +1,26 @@
+class Solution(object):
+    def twoSum(self, nums, target):
+        num=sorted(nums)
+        s,e=0,len(num)-1
+        if target!=0:
+            t=0
+        else:
+            t=-1
+        while (t!=target):
+            t=num[s]+num[e]
+            if t>target:
+                e-=1
+            if t<target:
+                s+=1
+        s=nums.index(num[s])
+        e=nums.index(num[e]) 
+        if s==e: e=nums.index(nums[e],e+1)
+        l=[s,e]
+        return l
+
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        
