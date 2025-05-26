@@ -1,0 +1,23 @@
+class Solution(object):
+    def maxSubArray(self, nums):
+        ms=nums[0]
+        s=0
+        for i in nums:
+            s=s+i
+            if ms<s:
+                ms=s
+            if s<0:
+                s=0
+        return ms
+
+        # Older technique-->
+        # if len(nums)==1: return nums[0]
+        # sum=0
+        # m=sum
+        # for i in range(len(nums)):
+        #     sum=sum+nums[i]
+        #     m=max(sum,m)
+        #     if sum<0:
+        #         sum=0 
+        # if max(nums)<0:  m=max(nums)     
+        # return m
